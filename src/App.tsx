@@ -347,13 +347,13 @@ function Home() {
                   alt={perk.title}
                   className="w-full h-48 object-cover"
                 />
-                {perk.company === "Tesla" && (
+                {/* {perk.company === "Tesla" && (
                   <img
                     src="https://www.tesla.com/themes/custom/tesla_frontend/components/images/logo.svg"
                     alt="Tesla Logo"
                     className="absolute top-4 left-4 h-6 invert"
                   />
-                )}
+                )} */}
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
