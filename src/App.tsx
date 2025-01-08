@@ -377,8 +377,8 @@ function Home() {
                     {perk.sharesRequired}
                   </span>
                   <span className="bg-[#F0F1FF] text-[#5263FF] text-sm font-semibold px-2 py-1 rounded flex items-center gap-2">
+                    <img src="/votr_purple.png" className="h-5 w-5 p-0.5" />
                     VOTR ACCESS{" "}
-                    <img src="/votr_purple.png" className="h-5 w-5 " />
                   </span>
                 </div>
                 <div className="mt-4 text-sm text-[#6B6B6B]">
@@ -467,8 +467,8 @@ function Home() {
                     {perk.sharesRequired}
                   </span>
                   <span className="bg-[#F0F1FF] text-[#5263FF] text-sm font-semibold px-2 py-1 rounded flex items-center gap-2">
+                    <img src="/votr_purple.png" className="h-5 w-5 p-0.5 " />
                     VOTR ACCESS{" "}
-                    <img src="/votr_purple.png" className="h-5 w-5 " />
                   </span>
                 </div>
                 <div className="mt-4 text-sm text-[#6B6B6B]">
