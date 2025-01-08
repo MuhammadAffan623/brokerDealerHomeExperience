@@ -1,18 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#root{
-    background-color: #FAFAFA;
+#root {
+  background-color: #fafafa;
 }
 
 /* Hide scrollbar for Webkit (Chrome, Safari, etc.) */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for other browsers */
-  .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
+  display: none;
+}
+
+/* Hide scrollbar for other browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+* {
+  font-family: "Inter", sans-serif;
+}
+.jakartaFont {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}

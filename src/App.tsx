@@ -349,15 +349,8 @@ function Home() {
                 <img
                   src={perk.image}
                   alt={perk.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover rounded-md"
                 />
-                {/* {perk.company === "Tesla" && (
-                  <img
-                    src="https://www.tesla.com/themes/custom/tesla_frontend/components/images/logo.svg"
-                    alt="Tesla Logo"
-                    className="absolute top-4 left-4 h-6 invert"
-                  />
-                )} */}
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
@@ -369,9 +362,6 @@ function Home() {
                 <h3 className="text-black text-lg font-semibold mb-2">
                   {perk.title}
                 </h3>
-                <p className="text-[#6B6B6B] text-sm mb-4">
-                  {perk.description}
-                </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="bg-[#D0F5E1] text-[#34A853] text-sm font-semibold px-2 py-1 rounded">
                     {perk.sharesRequired}
@@ -392,17 +382,17 @@ function Home() {
         {/* Featured Banner */}
         <div className="bg-[#1C1C1C] rounded-lg overflow-hidden mb-8">
           <div className="flex flex-col lg:flex-row h-auto items-center justify-between">
-            <div className="w-full lg:w-1/2 p-6 h-full">
+            <div className="w-full lg:w-1/2 px-6 h-full">
               <div className="flex items-center gap-2 mb-3 text-white font-bold text-2xl">
                 <span className="text-[#D63B3B]">
-                  <img src="/tesla_logoV1.png" className="h-6" />
+                  <img src="/Avatar.png" className="h-6" />
                 </span>
-                <span className="text-white font-bold text-2xl">AAPL</span>
+                <span className="text-white font-bold text-2xl font">AAPL</span>
               </div>
               <h2 className="text-xl sm:text-4xl text-white font-semibold mb-3 py-3">
                 10% off iPhone 16 for shareholders with 50+ shares
               </h2>
-              <p className="text-[#E6E6E9] mb-6 py-2">
+              <p className="text-[#E6E6E9] mb-6 py-2  jakartaFont">
                 Exclusive offer for Apple shareholders: Get 10% off the latest
                 iPhone 16 when you verify ownership of 50+ AAPL shares.
               </p>
@@ -412,9 +402,12 @@ function Home() {
             </div>
             <div className="w-full lg:w-1/2 h-40 lg:h-auto">
               <img
-                src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&q=80&w=600&h=400"
+                src="/svg/iphone.svg"
                 alt="iPhone 17"
                 className="w-full h-full object-cover"
+                style={{
+                  mixBlendMode: "difference",
+                }}
               />
             </div>
           </div>
@@ -447,7 +440,7 @@ function Home() {
               <img
                 src={perk.image}
                 alt={perk.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover rounded-md"
               />
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
@@ -459,9 +452,6 @@ function Home() {
                 <h3 className="text-black text-lg font-semibold mb-2">
                   {perk.title}
                 </h3>
-                <p className="text-[#6B6B6B] text-sm mb-4">
-                  {perk.description}
-                </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="bg-[#FBD8D5] text-[#EA4334] font-semibold text-sm px-2 py-1 rounded">
                     {perk.sharesRequired}
