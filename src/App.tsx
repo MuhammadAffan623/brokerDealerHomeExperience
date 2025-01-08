@@ -278,7 +278,7 @@ function Home() {
             <button
               onClick={() => setFilter("all")}
               className={`px-4 py-2 rounded-full ${
-                filter === "all" ? "bg-[#D63B3B] text-white" : "text-[#D1D1D1]"
+                filter === "all" ? "bg-[#D63B3B] text-white" : "text-white bg-[#FFFFFF33]"
               }`}
             >
               All Access
@@ -288,7 +288,7 @@ function Home() {
               className={`px-4 py-2 rounded-full ${
                 filter === "qualified"
                   ? "bg-[#D63B3B] text-white"
-                  : "text-[#D1D1D1]"
+                  : "text-white bg-[#FFFFFF33]"
               }`}
             >
               Qualified
@@ -298,7 +298,7 @@ function Home() {
               className={`px-4 py-2 rounded-full ${
                 filter === "potential"
                   ? "bg-[#D63B3B] text-white"
-                  : "text-[#D1D1D1]"
+                  : "text-white bg-[#FFFFFF33]"
               }`}
             >
               Potential
@@ -308,7 +308,7 @@ function Home() {
               className={`px-4 py-2 rounded-full ${
                 filter === "claimed"
                   ? "bg-[#D63B3B] text-white"
-                  : "text-[#D1D1D1]"
+                  : "text-white bg-[#FFFFFF33]"
               }`}
             >
               Claimed
