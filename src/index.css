@@ -5,3 +5,14 @@
 #root{
     background-color: #FAFAFA;
 }
+
+/* Hide scrollbar for Webkit (Chrome, Safari, etc.) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for other browsers */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }

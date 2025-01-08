@@ -136,7 +136,7 @@ function Home() {
         style={{ backgroundImage: `url('/banner.png')` }}
       >
         {/* Navigation */}
-        <nav className=" border-b border-[#1C1C1C] mb-8">
+        <nav className=" border-b border-[#1C1C1C] mb-8 sticky z-50">
           <div className="mx-auto">
             <div className="flex justify-between h-16 items-center">
               <div className="flex items-center">
@@ -166,10 +166,10 @@ function Home() {
                 <button className="text-[#D1D1D1] hover:text-white px-3 py-2">
                   Education
                 </button>
-                <button className="border border-[#D63B3B] text-[#D63B3B] px-4 py-2 rounded-lg">
+                <button className="border border-[#D63B3B] text-[#D63B3B] px-4 py-2 rounded-lg hover:text-white hover:bg-[#D63B3B]">
                   Login
                 </button>
-                <button className="bg-[#D63B3B] text-white px-4 py-2 rounded">
+                <button className="bg-[#D63B3B] text-white px-4 py-2 rounded hover:bg-transparent hover:text-[#D63B3B] border border-[#D63B3B]">
                   Open Account
                 </button>
               </div>
@@ -177,7 +177,7 @@ function Home() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="lg:hidden bg-[#1C1C1C] px-4 py-2">
+            <div className="lg:hidden bg-[#1C1C1C] px-4 py-2 z-50">
               <div className="flex flex-col space-y-2">
                 <button className="text-[#D1D1D1] hover:text-white px-3 py-2">
                   Why IBKR
@@ -194,7 +194,7 @@ function Home() {
                 <button className="text-[#D1D1D1] hover:text-white px-3 py-2">
                   Education
                 </button>
-                <button className="bg-[#D63B3B] text-white px-4 py-2 rounded">
+                <button className="bg-[#D63B3B] text-white px-4 py-2 rounded ">
                   Login
                 </button>
                 <button className="border border-[#D63B3B] text-white px-4 py-2 rounded">
@@ -206,7 +206,7 @@ function Home() {
         </nav>
 
         {/* sample */}
-        <div className="flex flex-col sm:flex-row items-center   bg-[#FFFFFF26] rounded-md shadow-md mb-5">
+        <div className="flex items-center   bg-[#FFFFFF26] rounded-md shadow-md mb-5">
           {/* Search Input */}
           <div className="flex-1 relative w-full">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#9D9FAA]" />
@@ -218,7 +218,7 @@ function Home() {
           </div>
 
           {/* Dropdown and Search Buttons */}
-          <div className="flex">
+          <div className="hidden sm:flex">
             {/* Offer Type Dropdown */}
             <div className="relative">
               <button
@@ -275,14 +275,14 @@ function Home() {
         </div>
         {/* sample */}
 
-        <div className="overflow-x-auto -mx-4 px-4">
+        <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
           <div className="flex space-x-4 mb-6 min-w-max">
             <button
               onClick={() => setFilter("all")}
               className={`px-4 py-2 rounded-full ${
                 filter === "all"
-                  ? "bg-[#D63B3B] text-white"
-                  : "text-white bg-[#FFFFFF33]"
+                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed"
+                  : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white"
               }`}
             >
               All Access
@@ -291,8 +291,8 @@ function Home() {
               onClick={() => setFilter("qualified")}
               className={`px-4 py-2 rounded-full ${
                 filter === "qualified"
-                  ? "bg-[#D63B3B] text-white"
-                  : "text-white bg-[#FFFFFF33]"
+                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed "
+                  : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white "
               }`}
             >
               Qualified
@@ -301,8 +301,8 @@ function Home() {
               onClick={() => setFilter("potential")}
               className={`px-4 py-2 rounded-full ${
                 filter === "potential"
-                  ? "bg-[#D63B3B] text-white"
-                  : "text-white bg-[#FFFFFF33]"
+                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed"
+                  : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white"
               }`}
             >
               Potential
@@ -311,8 +311,8 @@ function Home() {
               onClick={() => setFilter("claimed")}
               className={`px-4 py-2 rounded-full ${
                 filter === "claimed"
-                  ? "bg-[#D63B3B] text-white"
-                  : "text-white bg-[#FFFFFF33]"
+                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed"
+                  : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white"
               }`}
             >
               Claimed
@@ -338,7 +338,7 @@ function Home() {
           {perks.slice(0, 3).map((perk, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg overflow-hidden cursor-pointer p-2"
+              className="bg-white rounded-lg overflow-hidden cursor-pointer p-2  hover:shadow-xl hover:scale-105 hover:bg-gray-50  transition-transform"
               // className="bg-[#1C1C1C] rounded-lg overflow-hidden cursor-pointer"
               style={{
                 boxShadow: "0px 23px 44px 0px rgba(176, 183, 195, 1)",
@@ -428,7 +428,7 @@ function Home() {
               Powered by <img className="h-4 " src="/votr_black.png" />
             </div>
           </div>
-          <div className="text-[#0038FF] font-medium flex gap-3">
+          <div className="text-[#0038FF] font-medium flex gap-3 cursor-pointer">
             View All <ChevronRight />
           </div>
         </div>
@@ -437,7 +437,7 @@ function Home() {
           {perks.slice(3).map((perk, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg overflow-hidden cursor-pointer p-2"
+              className="bg-white rounded-lg overflow-hidden cursor-pointer p-2 hover:shadow-xl hover:scale-105 hover:bg-gray-50  transition-transform"
               // className="bg-[#1C1C1C] rounded-lg overflow-hidden cursor-pointer"
               style={{
                 boxShadow: "0px 23px 44px 0px rgba(176, 183, 195, 1)",
