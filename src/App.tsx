@@ -130,13 +130,13 @@ function Home() {
     setDropdownOpen(false);
   };
   return (
-    <div className="min-h-screen max-w-7xl mx-auto">
+    <div className="min-h-screen ">
       <div
-        className="h-auto bg-cover bg-center px-2 md:px-8 pt-4 pb-0 md:pb-10 relative"
+        className="h-auto bg-cover bg-center px-2 md:px-8 pt-4 pb-0 md:pb-10 "
         style={{ backgroundImage: `url('/banner.png')` }}
       >
         {/* Navigation */}
-        <nav className=" border-b border-[#1C1C1C] mb-8 sticky z-50">
+        <nav className=" border-b border-[#1C1C1C] mb-8 sticky z-50 max-w-7xl mx-auto ">
           <div className="mx-auto">
             <div className="flex justify-between h-16 items-center">
               <div className="flex items-center">
@@ -206,7 +206,7 @@ function Home() {
         </nav>
 
         {/* sample */}
-        <div className="flex items-center   bg-[#FFFFFF26] rounded-md shadow-md mb-5">
+        <div className="flex items-center   bg-[#FFFFFF26] rounded-md shadow-md mb-5 max-w-7xl mx-auto ">
           {/* Search Input */}
           <div className="flex-1 relative w-full">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#9D9FAA]" />
@@ -275,7 +275,8 @@ function Home() {
         </div>
         {/* sample */}
 
-        <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
+
+        <div className="overflow-x-auto scrollbar-hide max-w-7xl mx-auto ">
           <div className="flex space-x-4 mb-6 min-w-max">
             <button
               onClick={() => setFilter("all")}
@@ -320,7 +321,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-2 mb-6">
+        <div className="flex flex-col items-start gap-2 mb-6 max-w-7xl mx-auto ">
           <h2 className="text-xl sm:text-2xl text-white font-semibold">
             Available Access
           </h2>
@@ -332,141 +333,151 @@ function Home() {
         </div>
       </div>
 
-      <div className=" px-4 py-4 absolute top-[350px] sm:top-[300px] max-w-7xl mx-auto">
-        {/* First Row of Perks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
-          {perks.slice(0, 3).map((perk, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg overflow-hidden cursor-pointer p-2  hover:shadow-xl hover:scale-105 hover:bg-gray-50  transition-transform"
-              // className="bg-[#1C1C1C] rounded-lg overflow-hidden cursor-pointer"
-              style={{
-                boxShadow: "0px 23px 44px 0px rgba(176, 183, 195, 1)",
-              }}
-              onClick={perk.company === "Tesla" ? handleTeslaClick : undefined}
-            >
-              <div className="relative">
+      <div className="w-full max-w-7xl mx-auto relative">
+        <div className=" py-4 absolute top-[-40px] ">
+          {/* First Row of Perks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
+            {perks.slice(0, 3).map((perk, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg overflow-hidden cursor-pointer p-2  hover:shadow-xl hover:scale-105 hover:bg-gray-50  transition-transform"
+                // className="bg-[#1C1C1C] rounded-lg overflow-hidden cursor-pointer"
+                style={{
+                  boxShadow: "0px 23px 44px 0px rgba(176, 183, 195, 1)",
+                }}
+                onClick={
+                  perk.company === "Tesla" ? handleTeslaClick : undefined
+                }
+              >
+                <div className="relative">
+                  <img
+                    src={perk.image}
+                    alt={perk.title}
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[#D63B3B]">
+                      <img src="/tesla_logoV1.png" className="h-4" />
+                    </span>
+                    <span className="text-black font-medium">
+                      {perk.ticker}
+                    </span>
+                  </div>
+                  <h3 className="text-black text-lg font-semibold mb-2">
+                    {perk.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-[#D0F5E1] text-[#34A853] text-sm font-semibold px-2 py-1 rounded">
+                      {perk.sharesRequired}
+                    </span>
+                    <span className="bg-[#F0F1FF] text-[#5263FF] text-sm font-semibold px-2 py-1 rounded flex items-center gap-2">
+                      <img src="/votr_purple.png" className="h-5 w-5 p-0.5" />
+                      VOTR ACCESS{" "}
+                    </span>
+                  </div>
+                  <div className="mt-4 text-sm text-[#6B6B6B]">
+                    {perk.remaining}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Featured Banner */}
+          <div className="bg-[#1C1C1C] rounded-lg overflow-hidden mb-8">
+            <div className="flex flex-col lg:flex-row h-auto items-center justify-between">
+              <div className="w-full lg:w-1/2 px-6 h-full">
+                <div className="flex items-center gap-2 mb-3 text-white font-bold text-2xl">
+                  <span className="text-[#D63B3B]">
+                    <img src="/Avatar.png" className="h-6" />
+                  </span>
+                  <span className="text-white font-bold text-2xl font">
+                    AAPL
+                  </span>
+                </div>
+                <h2 className="text-xl sm:text-4xl text-white font-semibold mb-3 py-3">
+                  10% off iPhone 16 for shareholders with 50+ shares
+                </h2>
+                <p className="text-[#E6E6E9] mb-6 py-2  jakartaFont">
+                  Exclusive offer for Apple shareholders: Get 10% off the latest
+                  iPhone 16 when you verify ownership of 50+ AAPL shares.
+                </p>
+                <button className="bg-white text-black px-8 py-3 rounded-lg font-medium w-full sm:w-auto">
+                  Explore More
+                </button>
+              </div>
+              <div className="w-full lg:w-1/2 h-40 lg:h-auto">
+                <img
+                  src="/svg/iphone.svg"
+                  alt="iPhone 17"
+                  className="w-full h-full object-cover"
+                  style={{
+                    mixBlendMode: "difference",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col items-start gap-2 mb-6">
+              <h2 className="text-xl sm:text-2xl text-black font-semibold">
+                Potential Access
+              </h2>
+              <div className="text-sm text-[#6B6B6B] flex items-end justify-center gap-2">
+                Powered by <img className="h-4 " src="/votr_black.png" />
+              </div>
+            </div>
+            <div className="text-[#0038FF] font-medium flex gap-3 cursor-pointer">
+              View All <ChevronRight />
+            </div>
+          </div>
+          {/* Remaining Perks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
+            {perks.slice(3).map((perk, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg overflow-hidden cursor-pointer p-2 hover:shadow-xl hover:scale-105 hover:bg-gray-50  transition-transform"
+                // className="bg-[#1C1C1C] rounded-lg overflow-hidden cursor-pointer"
+                style={{
+                  boxShadow: "0px 23px 44px 0px rgba(176, 183, 195, 1)",
+                }}
+              >
+                {/* <div key={index} className="bg-[#1C1C1C] rounded-lg overflow-hidden"> */}
                 <img
                   src={perk.image}
                   alt={perk.title}
                   className="w-full h-48 object-cover rounded-md"
                 />
-              </div>
-              <div className="p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[#D63B3B]">
-                    <img src="/tesla_logoV1.png" className="h-4" />
-                  </span>
-                  <span className="text-black font-medium">{perk.ticker}</span>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[#D63B3B]">
+                      <img src="/tesla_logoV1.png" className="h-4" />
+                    </span>
+                    <span className="text-black font-medium">
+                      {perk.ticker}
+                    </span>
+                  </div>
+                  <h3 className="text-black text-lg font-semibold mb-2">
+                    {perk.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-[#FBD8D5] text-[#EA4334] font-semibold text-sm px-2 py-1 rounded">
+                      {perk.sharesRequired}
+                    </span>
+                    <span className="bg-[#F0F1FF] text-[#5263FF] text-sm font-semibold px-2 py-1 rounded flex items-center gap-2">
+                      <img src="/votr_purple.png" className="h-5 w-5 p-0.5 " />
+                      VOTR ACCESS{" "}
+                    </span>
+                  </div>
+                  <div className="mt-4 text-sm text-[#6B6B6B]">
+                    {perk.remaining}
+                  </div>
                 </div>
-                <h3 className="text-black text-lg font-semibold mb-2">
-                  {perk.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-[#D0F5E1] text-[#34A853] text-sm font-semibold px-2 py-1 rounded">
-                    {perk.sharesRequired}
-                  </span>
-                  <span className="bg-[#F0F1FF] text-[#5263FF] text-sm font-semibold px-2 py-1 rounded flex items-center gap-2">
-                    <img src="/votr_purple.png" className="h-5 w-5 p-0.5" />
-                    VOTR ACCESS{" "}
-                  </span>
-                </div>
-                <div className="mt-4 text-sm text-[#6B6B6B]">
-                  {perk.remaining}
-                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Featured Banner */}
-        <div className="bg-[#1C1C1C] rounded-lg overflow-hidden mb-8">
-          <div className="flex flex-col lg:flex-row h-auto items-center justify-between">
-            <div className="w-full lg:w-1/2 px-6 h-full">
-              <div className="flex items-center gap-2 mb-3 text-white font-bold text-2xl">
-                <span className="text-[#D63B3B]">
-                  <img src="/Avatar.png" className="h-6" />
-                </span>
-                <span className="text-white font-bold text-2xl font">AAPL</span>
-              </div>
-              <h2 className="text-xl sm:text-4xl text-white font-semibold mb-3 py-3">
-                10% off iPhone 16 for shareholders with 50+ shares
-              </h2>
-              <p className="text-[#E6E6E9] mb-6 py-2  jakartaFont">
-                Exclusive offer for Apple shareholders: Get 10% off the latest
-                iPhone 16 when you verify ownership of 50+ AAPL shares.
-              </p>
-              <button className="bg-white text-black px-8 py-3 rounded-lg font-medium w-full sm:w-auto">
-                Explore More
-              </button>
-            </div>
-            <div className="w-full lg:w-1/2 h-40 lg:h-auto">
-              <img
-                src="/svg/iphone.svg"
-                alt="iPhone 17"
-                className="w-full h-full object-cover"
-                style={{
-                  mixBlendMode: "difference",
-                }}
-              />
-            </div>
+            ))}
           </div>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col items-start gap-2 mb-6">
-            <h2 className="text-xl sm:text-2xl text-black font-semibold">
-              Potential Access
-            </h2>
-            <div className="text-sm text-[#6B6B6B] flex items-end justify-center gap-2">
-              Powered by <img className="h-4 " src="/votr_black.png" />
-            </div>
-          </div>
-          <div className="text-[#0038FF] font-medium flex gap-3 cursor-pointer">
-            View All <ChevronRight />
-          </div>
-        </div>
-        {/* Remaining Perks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
-          {perks.slice(3).map((perk, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg overflow-hidden cursor-pointer p-2 hover:shadow-xl hover:scale-105 hover:bg-gray-50  transition-transform"
-              // className="bg-[#1C1C1C] rounded-lg overflow-hidden cursor-pointer"
-              style={{
-                boxShadow: "0px 23px 44px 0px rgba(176, 183, 195, 1)",
-              }}
-            >
-              {/* <div key={index} className="bg-[#1C1C1C] rounded-lg overflow-hidden"> */}
-              <img
-                src={perk.image}
-                alt={perk.title}
-                className="w-full h-48 object-cover rounded-md"
-              />
-              <div className="p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[#D63B3B]">
-                    <img src="/tesla_logoV1.png" className="h-4" />
-                  </span>
-                  <span className="text-black font-medium">{perk.ticker}</span>
-                </div>
-                <h3 className="text-black text-lg font-semibold mb-2">
-                  {perk.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-[#FBD8D5] text-[#EA4334] font-semibold text-sm px-2 py-1 rounded">
-                    {perk.sharesRequired}
-                  </span>
-                  <span className="bg-[#F0F1FF] text-[#5263FF] text-sm font-semibold px-2 py-1 rounded flex items-center gap-2">
-                    <img src="/votr_purple.png" className="h-5 w-5 p-0.5 " />
-                    VOTR ACCESS{" "}
-                  </span>
-                </div>
-                <div className="mt-4 text-sm text-[#6B6B6B]">
-                  {perk.remaining}
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>
