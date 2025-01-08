@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, SlidersHorizontal, Menu, X,ChevronRight } from "lucide-react";
+import { Search, Menu, X, ChevronRight } from "lucide-react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -94,10 +94,12 @@ const perks = [
     title: "Access to Icon Properties",
     description:
       "Early booking window for Airbnb's most exclusive and unique properties",
-    image:
-      "https://news.airbnb.com/wp-content/uploads/sites/4/2024/04/02-The-Up-House-Icons-Airbnb-Credit-Ryan-Lowry.jpg?fit=2662,1776",
+    // image:
+    //   "https://news.airbnb.com/wp-content/uploads/sites/4/2024/04/02-The-Up-House-Icons-Airbnb-Credit-Ryan-Lowry.jpg?fit=2662,1776",
     sharesRequired: "1000+ Shares Required",
     remaining: "Limited spots available",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeQK4vslwpHEvUo-9QxFj4RBa2L2DhWvgwGA&s",
   },
   {
     company: "Chase",
@@ -278,7 +280,9 @@ function Home() {
             <button
               onClick={() => setFilter("all")}
               className={`px-4 py-2 rounded-full ${
-                filter === "all" ? "bg-[#D63B3B] text-white" : "text-white bg-[#FFFFFF33]"
+                filter === "all"
+                  ? "bg-[#D63B3B] text-white"
+                  : "text-white bg-[#FFFFFF33]"
               }`}
             >
               All Access
@@ -357,7 +361,9 @@ function Home() {
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[#D63B3B]">●</span>
+                  <span className="text-[#D63B3B]">
+                    <img src="/tesla_logoV1.png" className="h-4" />
+                  </span>
                   <span className="text-black font-medium">{perk.ticker}</span>
                 </div>
                 <h3 className="text-black text-lg font-semibold mb-2">
@@ -385,22 +391,23 @@ function Home() {
 
         {/* Featured Banner */}
         <div className="bg-[#1C1C1C] rounded-lg overflow-hidden mb-8">
-          <div className="flex flex-col lg:flex-row">
-            <div className="w-full lg:w-1/2 p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-[#D63B3B]">●</span>
-                <span className="text-white font-medium">AAPL</span>
+          <div className="flex flex-col lg:flex-row h-auto items-center justify-between">
+            <div className="w-full lg:w-1/2 p-6 h-full">
+              <div className="flex items-center gap-2 mb-3 text-white font-bold text-2xl">
+                <span className="text-[#D63B3B]">
+                  <img src="/tesla_logoV1.png" className="h-6" />
+                </span>
+                <span className="text-white font-bold text-2xl">AAPL</span>
               </div>
-              <h2 className="text-xl sm:text-2xl text-white font-bold mb-3">
-                Early iPhone 17 Access + MacWorld Invite
+              <h2 className="text-xl sm:text-4xl text-white font-semibold mb-3 py-3">
+                10% off iPhone 16 for shareholders with 50+ shares
               </h2>
-              <p className="text-[#6B6B6B] mb-4">
-                Preview and pre-order access for next-gen products plus
-                exclusive event access. Only available for shareholders with 50+
-                shares.
+              <p className="text-[#E6E6E9] mb-6 py-2">
+                Exclusive offer for Apple shareholders: Get 10% off the latest
+                iPhone 16 when you verify ownership of 50+ AAPL shares.
               </p>
-              <button className="bg-white text-black px-6 py-3 rounded-lg font-medium w-full sm:w-auto">
-                Learn More
+              <button className="bg-white text-black px-8 py-3 rounded-lg font-medium w-full sm:w-auto">
+                Explore More
               </button>
             </div>
             <div className="w-full lg:w-1/2 h-40 lg:h-auto">
@@ -421,7 +428,9 @@ function Home() {
               Powered by <img className="h-4 " src="/votr_black.png" />
             </div>
           </div>
-          <div className="text-[#0038FF] font-medium flex gap-3" >View All  <ChevronRight /> </div>
+          <div className="text-[#0038FF] font-medium flex gap-3">
+            View All <ChevronRight />
+          </div>
         </div>
         {/* Remaining Perks */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
@@ -442,7 +451,9 @@ function Home() {
               />
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[#D63B3B]">●</span>
+                  <span className="text-[#D63B3B]">
+                    <img src="/tesla_logoV1.png" className="h-4" />
+                  </span>
                   <span className="text-black font-medium">{perk.ticker}</span>
                 </div>
                 <h3 className="text-black text-lg font-semibold mb-2">
