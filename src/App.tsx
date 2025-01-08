@@ -177,7 +177,7 @@ function Home() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="lg:hidden bg-[#1C1C1C] px-4 py-2 z-50">
+            <div className="lg:hidden bg-[#1C1C1C] px-4 py-2 absolute w-full">
               <div className="flex flex-col space-y-2">
                 <button className="text-[#D1D1D1] hover:text-white px-3 py-2">
                   Why IBKR
