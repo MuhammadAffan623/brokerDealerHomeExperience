@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import TeslaDetail from "./components/TeslaDetail";
+import OfferCard from "./components/OfferCard";
 
 const perks = [
   {
@@ -133,21 +134,35 @@ function Home() {
     <div className="min-h-screen ">
       <div
         className="h-auto bg-cover bg-center px-2 md:px-8 pt-4 pb-0 md:pb-10 "
-        style={{ backgroundImage: `url('/banner.png')` }}
+        style={{
+          backgroundImage: `url('/banner.png')`,
+        }}
       >
         {/* Navigation */}
         <nav className=" border-b border-[#1C1C1C] mb-8 sticky z-50 max-w-7xl mx-auto ">
           <div className="mx-auto">
-            <div className="flex justify-between h-16 items-center">
+            <div className="flex justify-between h-16 items-center ">
               <div className="flex items-center">
-                <img src="/ib-logo.svg" alt="IB Logo" className="h-6 sm:h-8" />
+                <img
+                  src="/ib-logo.svg"
+                  alt="IB Logo"
+                  className="h-10 sm:h-8 w-[300px] sm:w-auto"
+                />
               </div>
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden text-white"
               >
-                {mobileMenuOpen ? <X /> : <Menu />}
+                {mobileMenuOpen ? (
+                  <div className="border border-[#54575E] rounded-full p-3 mt-3">
+                    <X />
+                  </div>
+                ) : (
+                  <div className="border border-[#54575E] rounded-full p-3 mt-3">
+                    <Menu />
+                  </div>
+                )}
               </button>
 
               <div className="hidden lg:flex space-x-4">
@@ -213,7 +228,7 @@ function Home() {
             <input
               type="text"
               placeholder="Offer, Issuer, Store etc"
-              className="w-full bg-transparent border-r border-[#54575E] text-[#9D9FAA] placeholder:text-[#9D9FAA] pl-12 py-3 rounded-none focus:outline-none  focus:ring-[#2C2C2C]"
+              className="w-full bg-transparent sm:border-r border-[#54575E] text-[#9D9FAA] placeholder:text-[#9D9FAA] pl-12 py-3 rounded-none focus:outline-none  focus:ring-[#2C2C2C]"
             />
           </div>
 
@@ -275,14 +290,13 @@ function Home() {
         </div>
         {/* sample */}
 
-
-        <div className="overflow-x-auto scrollbar-hide max-w-7xl mx-auto ">
+        <div className="overflow-x-auto scrollbar-hide max-w-7xl mx-auto  ">
           <div className="flex space-x-4 mb-6 min-w-max">
             <button
               onClick={() => setFilter("all")}
               className={`px-4 py-2 rounded-full ${
                 filter === "all"
-                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed"
+                  ? "bg-[#D63B3B] text-white  "
                   : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white"
               }`}
             >
@@ -292,7 +306,7 @@ function Home() {
               onClick={() => setFilter("qualified")}
               className={`px-4 py-2 rounded-full ${
                 filter === "qualified"
-                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed "
+                  ? "bg-[#D63B3B] text-white   "
                   : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white "
               }`}
             >
@@ -302,7 +316,7 @@ function Home() {
               onClick={() => setFilter("potential")}
               className={`px-4 py-2 rounded-full ${
                 filter === "potential"
-                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed"
+                  ? "bg-[#D63B3B] text-white  "
                   : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white"
               }`}
             >
@@ -312,7 +326,7 @@ function Home() {
               onClick={() => setFilter("claimed")}
               className={`px-4 py-2 rounded-full ${
                 filter === "claimed"
-                  ? "bg-[#D63B3B] text-white hover:cursor-not-allowed"
+                  ? "bg-[#D63B3B] text-white  "
                   : "text-white bg-[#FFFFFF33] hover:bg-[#D63B3B] hover:text-white"
               }`}
             >
@@ -321,11 +335,11 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-2 mb-6 max-w-7xl mx-auto ">
-          <h2 className="text-xl sm:text-2xl text-white font-semibold">
+        <div className="flex flex-row sm:flex-col justify-between sm:justify-start sm:items-start items-center mb-6 pb-3 max-w-7xl mx-auto ">
+          <div className="text-xl sm:text-2xl text-white font-semibold">
             Available Access
-          </h2>
-          <div className="text-sm text-[#6B6B6B] flex items-end justify-center gap-2">
+          </div>
+          <div className="text-sm text-[#6B6B6B] h-full flex items-center gap-2">
             Powered by <img className="h-4 " src="/votr_white.png" />
           </div>
 
@@ -334,7 +348,7 @@ function Home() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto relative">
-        <div className=" py-4 absolute top-[-40px] ">
+        <div className=" py-4 absolute top-[-40px] px-4 ">
           {/* First Row of Perks */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
             {perks.slice(0, 3).map((perk, index) => (
@@ -377,7 +391,7 @@ function Home() {
                       VOTR ACCESS{" "}
                     </span>
                   </div>
-                  <div className="mt-4 text-sm text-[#6B6B6B]">
+                  <div className="mt-4 text-sm text-[#6B6B6B]  hidden sm:visible">
                     {perk.remaining}
                   </div>
                 </div>
@@ -386,40 +400,8 @@ function Home() {
           </div>
 
           {/* Featured Banner */}
-          <div className="bg-[#1C1C1C] rounded-lg overflow-hidden mb-8">
-            <div className="flex flex-col lg:flex-row h-auto items-center justify-between">
-              <div className="w-full lg:w-1/2 px-6 h-full">
-                <div className="flex items-center gap-2 mb-3 text-white font-bold text-2xl">
-                  <span className="text-[#D63B3B]">
-                    <img src="/Avatar.png" className="h-6" />
-                  </span>
-                  <span className="text-white font-bold text-2xl font">
-                    AAPL
-                  </span>
-                </div>
-                <h2 className="text-xl sm:text-4xl text-white font-semibold mb-3 py-3">
-                  10% off iPhone 16 for shareholders with 50+ shares
-                </h2>
-                <p className="text-[#E6E6E9] mb-6 py-2  jakartaFont">
-                  Exclusive offer for Apple shareholders: Get 10% off the latest
-                  iPhone 16 when you verify ownership of 50+ AAPL shares.
-                </p>
-                <button className="bg-white text-black px-8 py-3 rounded-lg font-medium w-full sm:w-auto">
-                  Explore More
-                </button>
-              </div>
-              <div className="w-full lg:w-1/2 h-40 lg:h-auto">
-                <img
-                  src="/svg/iphone.svg"
-                  alt="iPhone 17"
-                  className="w-full h-full object-cover"
-                  style={{
-                    mixBlendMode: "difference",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
+          <OfferCard />
+
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-start gap-2 mb-6">
               <h2 className="text-xl sm:text-2xl text-black font-semibold">
@@ -471,7 +453,7 @@ function Home() {
                       VOTR ACCESS{" "}
                     </span>
                   </div>
-                  <div className="mt-4 text-sm text-[#6B6B6B]">
+                  <div className="mt-4 text-sm text-[#6B6B6B] hidden sm:block">
                     {perk.remaining}
                   </div>
                 </div>
